@@ -8,7 +8,7 @@ function App() {
   return (
     <>
         <h2>Hello!</h2>
-        <PostsList allPosts={allPosts} />
+        <PostsList allPosts={allPosts} setAllPosts={setAllPosts} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<PostsList />} />
