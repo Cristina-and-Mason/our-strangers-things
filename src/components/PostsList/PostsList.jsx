@@ -23,8 +23,8 @@ function PostsList (props){
     return(
         <div>
             <h2>All Posts below:</h2>
-            <h2>{allPosts.title}</h2>
-            <h2>{allPosts.description}</h2>
+            <h2>{props.title}</h2>
+            <h2>{props.description}</h2>
         </div>
     )
 }
