@@ -1,30 +1,17 @@
 import { useState, useEffect } from "react";
-function PostsList (props){
-    // Step S: Setup
-  const [allPosts, setAllPosts] =useState ([]);
+import SinglePost from "../SinglePost/SinglePost";
 
-  // Step F: Fetch our data
-  useEffect (() =>{
-    async function fetchOurPosts(){
-      try {
-          const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts")
-
-          const translatedData= await response.json();
-
-          setAllPosts(translatedData.data.posts);
-
-          console.log(translatedData.data.posts);
-      }catch (error){
-        console.log(error);
-      }
-    }
-    fetchOurPosts();
-  }, [])
+function PostsList (props) {
     return(
         <div>
             <h2>All Posts below:</h2>
-            <h2>{props.title}</h2>
-            <h2>{props.description}</h2>
+           {
+           props.allPosts.length ? props.allPosts.map((post) => {
+                return <SinglePost key={post._id} allPosts={post.allPosts} setAllPosts={post.setAllPosts} />
+            }) : (
+                <h3>Loading</h3>
+            )
+        } 
         </div>
     )
 }
