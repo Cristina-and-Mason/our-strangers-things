@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
-import { PostsList } from './components/index';
+import { PostsList, Home, SinglePost } from './components/index';
 import './App.css'
 
 function App() {
