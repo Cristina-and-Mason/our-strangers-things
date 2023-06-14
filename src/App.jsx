@@ -11,7 +11,7 @@ function App() {
   useEffect (() =>{
     async function fetchOurPosts(){
       try {
-          const resonse= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts`")
+          const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts`")
 
           const translatedData= await response.json();
 
