@@ -1,8 +1,8 @@
-function SinglePost ({ post }){
+function SinglePost ( post ){
     return(
         <div>
-            <h2>{post.allPosts.title}</h2>
-            <h2>{post.allPosts.description}</h2>
+            <h2>{post.title}</h2>
+            <h2>{post.description}</h2>
         </div>
     )
 }
