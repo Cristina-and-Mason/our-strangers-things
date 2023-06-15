@@ -1,16 +1,25 @@
 function NewPost (props){
-    // console.log(props)
-    async function newPostReq() {
+    console.log(props.newPost)
+    async function newPostReq(event) {
+        event.preventDefault();
         try {
-            const response = await fetch()
+            const response = await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify ({
+                    title: props.newPost
+                })   
+            })
+            const translatedData = await response.json();
+            console.log(translatedData)
         } catch (error) {
             console.log(error)
         }
     }
     return(
-        <form onSubmit={(event) =>{
-            event.preventDefault();
-        }}>
+        <form onSubmit={newPostReq}>
             <label>New Post Title:</label>
             <input 
             title="title" 
