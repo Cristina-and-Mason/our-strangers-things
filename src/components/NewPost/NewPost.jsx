@@ -1,5 +1,12 @@
 function NewPost (props){
     // console.log(props)
+    async function newPostReq() {
+        try {
+            const response = await fetch()
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return(
         <form onSubmit={(event) =>{
             event.preventDefault();
