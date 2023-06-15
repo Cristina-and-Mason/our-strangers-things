@@ -4,7 +4,8 @@ import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost } from './compo
 import './App.css'
 
 function App() {
-  const [allPosts, setAllPosts] =useState ([]);
+  const [allPosts, setAllPosts] = useState([]);
+  const [newPost, setNewPost] = useState("");
 
   useEffect (() =>{
     async function fetchOurPosts(){
@@ -15,7 +16,7 @@ function App() {
 
           setAllPosts(translatedData.data.posts);
 
-          console.log(translatedData.data.posts);
+          // console.log(translatedData.data.posts);
       }catch (error){
         console.log(error);
       }
@@ -32,10 +33,10 @@ function App() {
         <Link to="/searchbar">SEARCH</Link>
       </nav>
         <h2>Hello!</h2>
-        <PostsList allPosts={allPosts} setAllPosts={setAllPosts} />
+        
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<PostsList />} />
+          <Route path="/posts" element={<PostsList allPosts={allPosts} newPost={newPost} setNewPost={setNewPost} />} />
           <Route path="/posts/:id" element={<SinglePost />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>}></Route>
         </Routes>
