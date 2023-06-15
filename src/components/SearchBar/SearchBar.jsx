@@ -1,38 +1,39 @@
 import {useState} from 'react'
-function SearchBar (props){
+function SearchBar ({allPosts, setAllPosts}){
     // console.log(props)
+let [searchQuery, setSearchQuery]=useState("");
 
-    let [searchQuery, setSearchQuery]=useState("");
+    let filteredPosts=allPosts.filter((post) => {
+        let lowercasedName= post.title.toLowerCase();
+        let lowercasedQuery= searchQuery.toLowerCase();
 
-    let filteredPosts=allPosts.filter((singlePost)=> {
-        if (singlePost.title.includes (searchQuery)) {
+        if (lowercasedName.includes (lowercasedQuery)) {
 
-            return singlePost
+            return post
         }
     })
 
     return(
         <div>
-            <h2>Single Post:</h2>
-                <form>
-                    <label htmlFor="search-query">Search by Post Name Here:</label>
+             <form>
+                 <label htmlFor="search-query">Search Posts:</label>
                     <input 
                     name="search-query"
                     type="text"
                     value={searchQuery}
                     onChange={(event) => {
+                        console.log(event.target.value)
                         setSearchQuery(event.target.value)
                     }}
-                    
                     ></input>
                 </form>
 
                 {
-                    filteredPosts.length ? filteredPosts.map((singlePost, idx) =>{
+                    filteredPosts.length ? filteredPosts.map((post, idx) =>{
                         return(
                             <div key={idx}>
-                                <h2>Post Titles: {singlePost.title}</h2>
-                                <p>Description: {singlePost.description}</p>
+                                <h2>Post Title: {post.title}</h2>
+                                <p>Description: {post.description}</p>
                             </div>
                         )
                     }) : <p>Loading...</p>

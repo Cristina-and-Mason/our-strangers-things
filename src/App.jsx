@@ -22,15 +22,24 @@ function App() {
     }
     fetchOurPosts();
   }, [])
+   
   return (
     <>
+     <div>
+      <nav className="container-element">
+        <Link to="/">HOME</Link>
+        <Link to="/posts">POSTS</Link>
+        <Link to="/searchbar">SEARCH</Link>
+      </nav>
         <h2>Hello!</h2>
         <PostsList allPosts={allPosts} setAllPosts={setAllPosts} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<PostsList />} />
           <Route path="/posts/:id" element={<SinglePost />} />
+          <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>}></Route>
         </Routes>
+      </div>
     </>
   )
 }
