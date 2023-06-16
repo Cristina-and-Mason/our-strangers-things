@@ -25,7 +25,7 @@ function PostsList (props) {
         <div>
             <h2>All Posts below:</h2>
             {
-                <NewPost newPost={props.newPost} setNewPost={props.setNewPost} />
+                <NewPost newPostTitle={props.newPostTitle} setNewPostTitle={props.setNewPostTitle} newPostDesc={props.newPostDesc} setNewPostDesc={props.setNewPostDesc} />
         }
             {
            props.allPosts.length ? props.allPosts.map((post) => {
