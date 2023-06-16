@@ -29,6 +29,30 @@ const Login = (props) => {
     };
     return(
         <div>
+          <form>
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </label>
+        <button type='submit'>Submit</button>
+      </form>
+            <h3>No Account? Create one!</h3>
         <button id="loginbutton" onClick={toRegister}>
         Create A New Account
       </button>
