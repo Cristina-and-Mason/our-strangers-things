@@ -18,7 +18,7 @@ const Register= (props) => {
             localStorage.setItem('token', result.token)
             setIsLoggedIn (true)
 
-            navigate('/posts')
+            navigate('/')
         } catch (error){
             console.log (error)
         }
