@@ -25,14 +25,23 @@ function NewPost (props){
             title="title" 
             type="text" 
             placeholder="Your title goes here"
-            value={props.newPost}
+            value={props.newPostTitle}
             onChange={(event) => {
-                props.setNewPost(event.target.value)
+                props.setNewPostTitle(event.target.value)
                 console.log(event.target.value)
             }}
             ></input><br/>
             <label>New Post Description:</label>
-            <input name="description" type="text" placeholder="Your description goes here"></input><br/>
+            <input 
+            name="description" 
+            type="text" 
+            placeholder="Your description goes here"
+            value={props.newPostDesc}
+            onChange={(event) => {
+                props.setNewPostDesc(event.target.value)
+                console.log(event.target.value)
+            }}
+            ></input><br/>
             <button type="submit">Create New Post</button>
         </form>
     )

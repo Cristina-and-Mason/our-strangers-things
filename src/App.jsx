@@ -5,7 +5,8 @@ import './App.css'
 
 function App() {
   const [allPosts, setAllPosts] = useState([]);
-  const [newPost, setNewPost] = useState("");
+  const [newPostTitle, setNewPostTitle] = useState("");
+  const [newPostDesc, setNewPostDesc] = useState("");
   const [isLoggedIn, setIsLoggedIn]= useState (false);
 
   // useEffect (() =>{
@@ -46,7 +47,7 @@ function App() {
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} newPost={newPost} setNewPost={setNewPost} />} />
+          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc}  />} />
           <Route path="/posts/:id" element={<SinglePost />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>}></Route>
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>}></Route>
