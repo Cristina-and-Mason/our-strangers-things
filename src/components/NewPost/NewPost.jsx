@@ -1,5 +1,4 @@
 function NewPost (props){
-    console.log(props.newPost)
     async function newPostReq(event) {
         event.preventDefault();
         try {
