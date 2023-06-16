@@ -4,3 +4,7 @@ export {default as SinglePost} from "./SinglePost/SinglePost";
 export {default as SearchBar} from "./SearchBar/SearchBar";
 export {default as NewPost} from "./NewPost/NewPost";
 export {default as Delete} from "./Delete/Delete";
+export {default as Register} from "./Register/Register";
+export {default as NavBar} from "./NavBar/NavBar";
+export {default as FetchOurPosts} from "./FetchOurPosts/FetchOurPosts"
+export {default as Login} from "./Login/Login"
