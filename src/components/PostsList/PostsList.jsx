@@ -3,7 +3,24 @@ import SinglePost from "../SinglePost/SinglePost";
 import NewPost from "../NewPost/NewPost";
 
 function PostsList (props) {
-    // console.log(props)
+    useEffect (() =>{
+        async function fetchOurPosts(){
+            console.log(props)
+          try {
+              const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts")
+    
+              const translatedData= await response.json();
+    
+              props.setAllPosts(translatedData.data.posts);
+    
+              // console.log(translatedData.data.posts);
+          }catch (error){
+            console.log(error);
+          }
+        }
+        fetchOurPosts();
+      }, [])
+    
     return(
         <div>
             <h2>All Posts below:</h2>

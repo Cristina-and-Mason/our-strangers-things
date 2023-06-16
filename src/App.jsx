@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, FetchOurPosts, Login } from './components/index';
+import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, Login } from './components/index';
 import './App.css'
 
 function App() {
@@ -27,7 +27,6 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-   
     if (token) {
       setIsLoggedIn(true);
     }
@@ -47,7 +46,7 @@ function App() {
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<PostsList allPosts={allPosts} newPost={newPost} setNewPost={setNewPost} />} />
+          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} newPost={newPost} setNewPost={setNewPost} />} />
           <Route path="/posts/:id" element={<SinglePost />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>}></Route>
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>}></Route>
