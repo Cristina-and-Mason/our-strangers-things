@@ -4,7 +4,7 @@ function Delete (props){
     async function sendDeleteRequest(event){
         try{
             console.log(event.target.value)
-            const response= await fetch(, {
+            const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/5e8d1bd48829fb0017d2233b", {
                 method: "DELETE"
             })
 
