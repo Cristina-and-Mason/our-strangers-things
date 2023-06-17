@@ -21,6 +21,7 @@ function PostsList (props) {
         }
         fetchOurPosts();
       }, [])
+
     return(
         <div>
             {
@@ -37,7 +38,7 @@ function PostsList (props) {
                 ) : (
                     <>
                         {props.allPosts.length ? props.allPosts.map((post) => {
-                                return <SinglePost key={post} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}  />
+                                return <SinglePost key={post._id} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}  />
                             }) : (
                                 <h3>Loading</h3>
                             )}
