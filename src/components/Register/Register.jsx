@@ -4,8 +4,10 @@ import {useNavigate} from "react-router-dom"
 
 const Register= (props) => {
     const setIsLoggedIn= props.setIsLoggedIn
-    const [username, setUsername] =useState("")
-    const [password, setPassword] = useState("");
+    const username = props.username;
+    const setUsername = props.setUsername;
+    const password = props.password;
+    const setPassword = props.setPassword;
     const navigate= useNavigate()
 
     const handleSubmit= async (event)=>{

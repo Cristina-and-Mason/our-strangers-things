@@ -1,18 +1,35 @@
+import React, { useState } from "react";
+import { loginUser } from "../../api-adapters";
+import { useNavigate } from "react-router-dom";
+
 function NewPost (props){
+    const navigate = useNavigate();
     async function newPostReq(event) {
         event.preventDefault();
         try {
+            
+            const TOKEN_STRING = localStorage.getItem("token");
+            // console.log(TOKEN_STRING)
             const response = await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${TOKEN_STRING}`
                 },
                 body: JSON.stringify ({
-                    title: props.newPost
+                    post: {
+                    title: props.newPostTitle,
+                    description: props.newPostDesc,
+                    price: props.newPostPrice,
+                    location: null
+                }
                 })   
             })
             const translatedData = await response.json();
-            console.log(translatedData)
+            // console.log(translatedData)
+            navigate('/posts')
+            return translatedData
+            
         } catch (error) {
             console.log(error)
         }
@@ -27,7 +44,7 @@ function NewPost (props){
             value={props.newPostTitle}
             onChange={(event) => {
                 props.setNewPostTitle(event.target.value)
-                console.log(event.target.value)
+                // console.log(event.target.value)
             }}
             ></input><br/>
             <label>New Post Description:</label>
@@ -38,7 +55,18 @@ function NewPost (props){
             value={props.newPostDesc}
             onChange={(event) => {
                 props.setNewPostDesc(event.target.value)
-                console.log(event.target.value)
+                // console.log(event.target.value)
+            }}
+            ></input><br/>
+            <label>New Post Price:</label>
+            <input 
+            name="price" 
+            type="text" 
+            placeholder="Your price goes here"
+            value={props.newPostPrice}
+            onChange={(event) => {
+                props.setNewPostPrice(event.target.value)
+                // console.log(event.target.value)
             }}
             ></input><br/>
             <button type="submit">Create New Post</button>

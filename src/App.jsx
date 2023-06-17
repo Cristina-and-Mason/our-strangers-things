@@ -7,24 +7,10 @@ function App() {
   const [allPosts, setAllPosts] = useState([]);
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostDesc, setNewPostDesc] = useState("");
+  const [newPostPrice, setNewPostPrice] = useState("");
   const [isLoggedIn, setIsLoggedIn]= useState (false);
-
-  // useEffect (() =>{
-  //   async function fetchOurPosts(){
-  //     try {
-  //         const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts")
-
-  //         const translatedData= await response.json();
-
-  //         setAllPosts(translatedData.data.posts);
-
-  //         // console.log(translatedData.data.posts);
-  //     }catch (error){
-  //       console.log(error);
-  //     }
-  //   }
-  //   fetchOurPosts();
-  // }, [])
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -32,26 +18,20 @@ function App() {
       setIsLoggedIn(true);
     }
   }, []);
-  
-  
-   
+
   return (
     <>
      <div>
-      {/* <nav className="container-element">
-        <Link to="/">HOME</Link>
-        <Link to="/posts">POSTS</Link>
-        <Link to="/searchbar">SEARCH</Link>
-      </nav> */}
         <h2>Welcome to Strangers Things</h2>
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc}  />} />
+          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/posts/:id" element={<SinglePost />} />
-          <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>}></Route>
-          <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>}></Route>
-          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}></Route>
+          <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>} />
+          <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
+          <Route path="/new-post" element={<NewPost newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc} newPostPrice={newPostPrice} setNewPostPrice={setNewPostPrice} />} />
         </Routes>
       </div>
     </>

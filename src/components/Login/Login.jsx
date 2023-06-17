@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
     const setIsLoggedIn = props.setIsLoggedIn;
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const username = props.username;
+    const setUsername = props.setUsername;
+    const password = props.password;
+    const setPassword = props.setPassword;
     const navigate = useNavigate();
   
     const toRegister = () => {
@@ -17,7 +19,7 @@ const Login = (props) => {
   
       try {
         const result = await loginUser(username, password);
-        console.log(result);
+        // console.log(result);
   
         localStorage.setItem("token", result.token);
         setIsLoggedIn(true);
@@ -29,7 +31,7 @@ const Login = (props) => {
     };
     return(
         <div>
-          <form>
+          <form onSubmit={handleSubmit}>
         <label>
           Username:
           <input
