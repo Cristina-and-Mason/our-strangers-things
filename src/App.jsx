@@ -18,7 +18,7 @@ function App() {
       setIsLoggedIn(true);
     }
   }, []);
-
+console.log(allPosts[0].messages)
   return (
     <>
      <div>
@@ -28,11 +28,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/posts/:id" element={<SinglePost />} />
-          <Route path="/posts/:id/messages" element={<PostMessage />} />
+          <Route path="/posts/:id/messages" element={<PostMessage messages={allPosts.messages} />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>} />
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/new-post" element={<NewPost newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc} newPostPrice={newPostPrice} setNewPostPrice={setNewPostPrice} />} />
+          <Route path="/profile" />
         </Routes>
       </div>
     </>

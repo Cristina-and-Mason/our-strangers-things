@@ -3,7 +3,7 @@ function SinglePost ( props ){
     const navigate = useNavigate()
 
     const messagePage = ()=>{
-        navigate(`/posts/:id/messages`)
+        navigate(`/posts/${props.id}/messages`)
     } 
     return(
         <form onSubmit={messagePage}>

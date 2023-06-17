@@ -24,10 +24,16 @@ function PostMessage(props) {
             console.log(error)
         }
     }
-
+console.log(props)
     return (
         <div>
-            <h1>hello world</h1>
+            {
+                // props.messages.length ? props.messages.map((thread) => {
+                //     return thread.messages
+                // }) : (
+                //     <h3>No messages in this thread</h3>
+                // )
+            }
         </div>
     )
 }
