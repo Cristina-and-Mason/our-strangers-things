@@ -1,17 +1,28 @@
-function Delete (props){
-    console.log(props)
+import React, {useState} from "react";
+import {loginUser} from "../../api-adapters";
+import {useNavigate} from "react-router-dom";
 
+
+function Delete (props){
+    const navigate= useNavigate ();
     async function sendDeleteRequest(event){
+        event.preventDefault ();
         try{
-            console.log(event.target.value)
-            const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/5e8d1bd48829fb0017d2233b", {
-                method: "DELETE"
+            const TOKEN_STRING= localStorage.getItem ("token");
+            const response= await fetch(`https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${event.target.value}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${TOKEN_STRING}`
+                }
             })
 
             const translatedData= await response.json();
+
+            navigate('/posts')
             
             const filteredPosts= props.allPosts.filter((indivPost) => {
-                if(indivPost._id != event.target.value){
+                if(indivPost._id !=event.target.value){
                     return indivPost
                 }
             })
