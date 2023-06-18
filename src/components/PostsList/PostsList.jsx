@@ -1,20 +1,15 @@
-
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SinglePost from "../SinglePost/SinglePost";
 import NewPost from "../NewPost/NewPost";
 
 function PostsList (props) {
-    // console.log(props)
-    // console.log(props.isLoggedIn)
     useEffect (() =>{
         async function fetchOurPosts(){
           try {
-              const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts")
-    
-              const translatedData= await response.json();
-    
-              props.setAllPosts(translatedData.data.posts);
+            const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts")
+            const translatedData= await response.json();
+            props.setAllPosts(translatedData.data.posts);
           }catch (error){
             console.log(error);
           }
