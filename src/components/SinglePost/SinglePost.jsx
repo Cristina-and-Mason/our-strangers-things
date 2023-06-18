@@ -12,7 +12,6 @@ function SinglePost ( props ){
             <h2>Description: {props.description}</h2>
             <h2>Author: {props.author.username}</h2>
             <h2>Price: {props.price}</h2>
-            <h2>Messages: {props.messages}</h2>
             <button type="submit">Messages</button>
         </form>
     )

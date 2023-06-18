@@ -3,9 +3,9 @@ import { React, useState, useEffect } from "react";
 function PostMessage(props) {
     const [ newMessage, setNewMessage ] = useState('')
     const TOKEN_STRING = localStorage.getItem("token");
-    async function fetchMessages() {
+    async function postMessages() {
         try {
-            const response = await fetch(`https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${props.id}/messages`, {
+            const response = await fetch(`https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${id}/messages`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -24,17 +24,21 @@ function PostMessage(props) {
             console.log(error)
         }
     }
-console.log(props)
+console.log()
     return (
-        <div>
-            {
-                // props.messages.length ? props.messages.map((thread) => {
-                //     return thread.messages
-                // }) : (
-                //     <h3>No messages in this thread</h3>
-                // )
-            }
-        </div>
+        <form onSubmit={postMessages}>
+            <label>Send a Message:</label>
+            <textarea 
+            name="chat" 
+            type="text" 
+            placeholder="Send a message"
+            value={newMessage}
+            onChange={(event) => {
+                setNewMessage(event.target.value)
+            }}
+            />
+            <button type="submit">Send</button>
+        </form>
     )
 }
 
