@@ -1,31 +1,29 @@
-import {useState} from 'react'
-import {Link} from 'react-router-dom';
+import {useEffect, useState} from 'react'
 
-function Profile ({allPosts, setAllPosts}) {
-    let [searchQuery, setSearchQuery]=useState("");
+const Profile = ({ authenticatedUserId }) => {
 
-    let filteredProfilePosts= allPosts.filter((post) =>{
-        let lowercasedName= post.title.toLowerCase ();
-        let lowercasedQuery= searchQuery.tolowerCase ();
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts");
+      const data = await response.json();
+      props.setAllPosts(translatedData.data.posts);
+    };
 
-        if (lowercasedName.includes (lowercasedQuery)){
-            return post
-        }
+    fetchPosts();
+  }, []);
 
-    })
+  useEffect(() => {
+    const filteredPosts = posts.filter(post => post.userId === authenticatedUserId);
+    setFilteredPosts(filteredPosts);
+  }, [posts, authenticatedUserId]);
 
-    {
-        filteredProfilePosts.length ? filteredProfilePosts.map((post, idx) => {
-            return (
-                <div key= {idx}>
-                    <h2>Post Title: {post.title}</h2>
-                    <p>Description: {post.description}</p>
-                </div>
-            )
-        }): <p>Loading...</p>
-    }
-
-    
-}
+  return (
+    <div>
+      {filteredPosts.map((post) => (
+        <div key={props.id}>{props.title}</div>
+      ))}
+    </div>
+  );
+};
 
 export default Profile

@@ -34,18 +34,23 @@ function Delete (props){
         }
     }
 
-    return(
-        <div>
-            <h2>Name: {props.title}</h2>
-            <p>Post Id: {props.id}</p>
-            <button
-                onClick= {sendDeleteRequest}
-                value={props.id}
-            >
-                Delete Product #{props.id}
-            </button>
-        </div>
-    )
+    {
+        filteredProfilePosts.length ? filteredProfilePosts.map((post, idx) => {
+            return(
+                <div key={idx}>
+                     <h2>Name: {props.title}</h2>
+                    <p>Post Id: {props.id}</p>
+                        <button
+                            onClick= {sendDeleteRequest}
+                            value={props.id}
+                        >
+                            Delete Product #{props.id}
+                        </button>
+                </div>
+            )
+                }): <p>Loading...</p>
+
+    }
 }
 
 export default Delete;
