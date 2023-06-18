@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/posts/:id" element={<MessageList />} />
-          <Route path="/posts/:id/messages" element={<PostMessage allPosts={allPosts} setAllPosts={setAllPosts} messages={messages} setMessages={setMessages} />} />
+          <Route path="/posts/:id/messages" element={<PostMessage />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>} />
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />

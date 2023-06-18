@@ -1,30 +1,33 @@
 import { React, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function PostMessage(props) {
     const [ newMessage, setNewMessage ] = useState('')
+    const { id } = useParams();
+    const BASE_URL = `https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${id}/messages`
     const TOKEN_STRING = localStorage.getItem("token");
-    async function postMessages() {
+    const postMessages = async (event) => {
+        event.preventDefault();
         try {
-            const response = await fetch(`https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${id}/messages`, {
+          const response = await fetch(`${BASE_URL}`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${TOKEN_STRING}`
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${TOKEN_STRING}`
             },
             body: JSON.stringify({
-                message: {
-                    content: newMessage
-                }
+              message: {
+                content: newMessage
+              }
             })
-        });
-        const translatedData = await response.json();
-        console.log(translatedData)
-        return translatedData    
-        } catch (error) {
-            console.log(error)
+          });
+          const result = await response.json();
+          console.log(result);
+          return result
+        } catch (err) {
+          console.error(err);
         }
-    }
-console.log()
+      }
     return (
         <form onSubmit={postMessages}>
             <label>Send a Message:</label>

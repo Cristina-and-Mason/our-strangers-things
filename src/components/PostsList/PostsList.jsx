@@ -16,7 +16,7 @@ function PostsList (props) {
         }
         fetchOurPosts();
       }, [])
-
+console.log(props.allPosts[0])
     return(
         <div>
             {
