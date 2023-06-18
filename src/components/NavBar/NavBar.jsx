@@ -16,6 +16,8 @@ const NavBar = (props) => {
             onClick={() => {
               props.setIsLoggedIn(false);
               localStorage.removeItem("token");
+              localStorage.removeItem("username");
+              localStorage.removeItem("password");
             }}
           >
             Logout
