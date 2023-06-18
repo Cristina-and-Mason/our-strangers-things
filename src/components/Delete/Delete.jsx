@@ -4,6 +4,8 @@ import {useNavigate} from "react-router-dom";
 
 
 function Delete (props){
+    const loggedInUserName = localStorage.getItem("username") 
+    const loggedInPassword= localStorage.getItem ("password")
     const navigate= useNavigate ();
     async function sendDeleteRequest(event){
         event.preventDefault ();
@@ -20,15 +22,17 @@ function Delete (props){
             const translatedData= await response.json();
 
             navigate('/posts')
-            return translatedData
+            
             
             const filteredPosts= props.allPosts.filter((indivPost) => {
-                if(indivPost._id !=event.target.value){
+                if(indivPost.author.username !=event.target.value){
+                    console.log(indivPost)
                     return indivPost
                 }
             })
 
             props.setAllPosts(filteredPosts)
+            return translatedData
         } catch (error){
             console.log(error);
         }
