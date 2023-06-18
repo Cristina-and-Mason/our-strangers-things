@@ -4,10 +4,16 @@ import SinglePost from "../SinglePost/SinglePost";
 import NewPost from "../NewPost/NewPost";
 
 function PostsList (props) {
-    useEffect (() =>{
+    const TOKEN_STRING = localStorage.getItem("token");
+    useEffect (() => {
         async function fetchOurPosts(){
           try {
-            const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts")
+            const response= await fetch("https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts", {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${TOKEN_STRING}`
+                }
+            })
             const translatedData= await response.json();
             props.setAllPosts(translatedData.data.posts);
           }catch (error){
@@ -16,7 +22,7 @@ function PostsList (props) {
         }
         fetchOurPosts();
       }, [])
-console.log(props.allPosts[0])
+console.log(props.allPosts)
     return(
         <div>
             {
