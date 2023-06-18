@@ -11,6 +11,7 @@ const NavBar = (props) => {
           <Link to="/">Home </Link>
           <Link to="/posts">POSTS</Link>
           <Link to="/searchbar">SEARCH</Link>
+          <Link to="/profile">PROFILE</Link>
           <button
             onClick={() => {
               props.setIsLoggedIn(false);
