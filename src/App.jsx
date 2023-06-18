@@ -11,8 +11,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn]= useState (false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [messages, setMessages] = useState([])
-  const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
@@ -36,7 +34,7 @@ function App() {
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/new-post" element={<NewPost newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc} newPostPrice={newPostPrice} setNewPostPrice={setNewPostPrice} />} />
-          <Route path="/profile" element={<Profile filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts}/>} />
+          <Route path="/users/me" element={<Profile filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts}/>} />
           {/* <Route path="/delete" element={<Delete filteredPosts={filteredPosts}/>} /> */}
         </Routes>
       </div>
