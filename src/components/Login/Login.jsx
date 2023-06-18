@@ -19,9 +19,11 @@ const Login = (props) => {
   
       try {
         const result = await loginUser(username, password);
-        // console.log(result);
+        console.log(result);
   
         localStorage.setItem("token", result.token);
+        localStorage.setItem("username", username)
+        localStorage.setItem("password", password)
         setIsLoggedIn(true);
   
         navigate("/");
