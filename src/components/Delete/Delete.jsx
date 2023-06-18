@@ -9,7 +9,7 @@ function Delete (props){
         event.preventDefault ();
         try{
             const TOKEN_STRING= localStorage.getItem ("token");
-            const response= await fetch(`https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${event.target.value}`, {
+            const response= await fetch(`https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${props.id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -20,6 +20,7 @@ function Delete (props){
             const translatedData= await response.json();
 
             navigate('/posts')
+            return translatedData
             
             const filteredPosts= props.allPosts.filter((indivPost) => {
                 if(indivPost._id !=event.target.value){
@@ -35,13 +36,13 @@ function Delete (props){
 
     return(
         <div>
-            <h2>Name: {props.posts.title}</h2>
-            <p>Post Id: {props.posts._id}</p>
+            <h2>Name: {props.title}</h2>
+            <p>Post Id: {props.id}</p>
             <button
                 onClick= {sendDeleteRequest}
-                value={props.product._id}
+                value={props.id}
             >
-                Delete Product #{props.posts._id}
+                Delete Product #{props.id}
             </button>
         </div>
     )

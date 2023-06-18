@@ -11,3 +11,4 @@ export {default as PostMessage} from "./PostMessage/PostMessage";
 export {default as MessageList} from "./MessageList/MessageList";
 export {default as MessageThread} from "./MessageThread/MessageThread";
 export {default as PostDetails} from "./PostDetails/PostDetails"
+export {default as Profile} from "./Profile/Profile"
