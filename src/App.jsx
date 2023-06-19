@@ -23,7 +23,6 @@ function App() {
   return (
     <>
      <div>
-        <h2>Welcome to Strangers Things</h2>
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />

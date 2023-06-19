@@ -26,8 +26,10 @@ const Register= (props) => {
         }
     }
     return (
-        <div>
+        <div id="register-container">
+            <div id="register-title">
             <h2>Register</h2>
+            </div>
             <form onSubmit={handleSubmit}>
         <label>
           Username:

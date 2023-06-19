@@ -1,0 +1,15 @@
+.custom-cursor-default-hover{
+    background-color: #262322;
+}
+
+#homepage-title{
+    color: white;
+}
+
+#picture-container{
+    display: flex;
+    margin: auto;
+    width: 30em;
+    height: 30em;
+
+}

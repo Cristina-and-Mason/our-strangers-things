@@ -1,0 +1,11 @@
+#register-container{
+    display: flex;
+}
+
+#register-title{
+  border: 2px white;
+}
+
+.custom-cursor-default-hover{
+    border: 2px white;
+}
