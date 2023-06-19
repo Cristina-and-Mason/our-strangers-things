@@ -34,8 +34,8 @@ function App() {
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/new-post" element={<NewPost newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc} newPostPrice={newPostPrice} setNewPostPrice={setNewPostPrice} />} />
-          <Route path="/users/me" element={<Profile />} />
-          <Route path="/posts/:id"  element={<Delete/>} />
+          <Route path="/users/me" element={<Profile allPosts={allPosts} setAllPosts={setAllPosts} />} />
+          <Route path="/delete/:id" element={<Delete />} />
         </Routes>
       </div>
     </>
