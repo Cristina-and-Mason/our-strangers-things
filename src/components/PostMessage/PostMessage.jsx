@@ -1,10 +1,11 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import MessageThread from "../MessageThread/MessageThread";
 
 function PostMessage(props) {
     const [ newMessage, setNewMessage ] = useState('')
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
     const BASE_URL = `https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${id}/messages`
     const TOKEN_STRING = localStorage.getItem("token");
     const postMessages = async (event) => {
@@ -30,6 +31,8 @@ function PostMessage(props) {
         }
       }
     return (
+      <>
+        <MessageThread />
         <form onSubmit={postMessages}>
             <label>Send a Message:</label>
             <textarea 
@@ -43,6 +46,7 @@ function PostMessage(props) {
             />
             <button type="submit">Send</button>
         </form>
+      </>
     )
 }
 

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 function MessageThread ( props ){
     const navigate = useNavigate()
-// console.log(props.messages)
+    console.log(props)
     const messagePage = ()=>{
         navigate(`/posts`)
     } 

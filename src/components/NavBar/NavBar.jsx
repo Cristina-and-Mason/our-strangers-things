@@ -10,7 +10,6 @@ const NavBar = (props) => {
         <>
           <Link to="/">HOME </Link>
           <Link to="/posts">POSTS</Link>
-          <Link to="/searchbar">SEARCH</Link>
           <Link to="/users/me">PROFILE</Link>
           <button
             onClick={() => {
@@ -29,7 +28,6 @@ const NavBar = (props) => {
           <Link to="/register">REGISTER </Link>
           <Link to="/login">LOGIN </Link>
           <Link to="/posts">POSTS</Link>
-          <Link to="/searchbar">SEARCH</Link>
         </>
       )}
     </div>
