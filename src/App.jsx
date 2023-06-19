@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageList, MessageThread, PostDetails, Profile } from './components/index';
+import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageThread, PostDetails, Profile } from './components/index';
 import './App.css'
 
 function App() {
@@ -28,14 +28,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/posts/:id" element={<MessageList />} />
+          <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/posts/:id/messages" element={<PostMessage />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>} />
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/new-post" element={<NewPost newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc} newPostPrice={newPostPrice} setNewPostPrice={setNewPostPrice} />} />
           <Route path="/users/me" element={<Profile filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts}/>} />
-          {/* <Route path="/delete" element={<Delete filteredPosts={filteredPosts}/>} /> */}
+          <Route path="/delete" element={<Delete filteredPosts={filteredPosts}/>} />
         </Routes>
       </div>
     </>

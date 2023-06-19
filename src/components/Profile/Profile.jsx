@@ -14,7 +14,7 @@ const Profile = () => {
           },
         });
         const result = await response.json();
-        console.log(result.data.messages);
+        // console.log(result.data.messages);
         setMyPosts(result.data.posts)
         setMyMessages(result.data.messages)
       } catch (error) {
@@ -25,26 +25,30 @@ const Profile = () => {
   }, [])
   return (
     <div>
+        
+           
       <h1>My Posts</h1>
       {
         myPosts.map((post) => {
-          return<>
-              <h2>Title: {post.title}</h2>
-              <h2>ID# {post.id}</h2>
-              <h2>Description: {post.description}</h2>
-              <h2>Author: {post.author.username}</h2>
-              <h2>Price: {post.price}</h2>
-          </>
+          return  <>
+                    <h2>Title: {post.title}</h2>
+                    <h2>ID# {post._id}</h2>
+                    <h2>Description: {post.description}</h2>
+                    <h2>Author: {post.author.username}</h2>
+                    <h2>Price: {post.price}</h2>
+                  </>
+          })
+      }
+      <h1>My Messages</h1>
+      {
+        myMessages.map((message) => {
+          return  <>
+                    <h2 key={message._id}>{message.fromUser.username} says {message.content} to {message.post.author.username} </h2>
+                  </>
         })
       }
-
-      {/* {
-        myMessages.map((message) => {
-          return <>
-              <h2>{message.fromUser} says {message.content} to {message.author} </h2>
-          </>
-        })
-      } */}
+            
+           
     </div>
   );
 };
