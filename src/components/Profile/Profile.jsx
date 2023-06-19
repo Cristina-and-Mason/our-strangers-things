@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [ myPosts, setMyPosts ] = useState([])
   const [ myMessages, setMyMessages ] = useState([])
   const TOKEN_STRING = localStorage.getItem("token");
+  const navigate = useNavigate()
   useEffect (() => {
     async function profileData() {
       try {
@@ -23,8 +25,12 @@ const Profile = () => {
     }
     profileData()
   }, [])
+
+  const editPage = ()=>{
+      navigate("/posts/:id")
+  }
   return (
-    <div>
+    <div onClick={editPage}>
         
            
       <h1>My Posts</h1>
@@ -36,6 +42,7 @@ const Profile = () => {
                     <h2>Description: {post.description}</h2>
                     <h2>Author: {post.author.username}</h2>
                     <h2>Price: {post.price}</h2>
+                    <button type="button">Edit</button>
                   </>
           })
       }
