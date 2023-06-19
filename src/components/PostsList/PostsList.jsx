@@ -1,10 +1,17 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SinglePost from "../SinglePost/SinglePost";
-import NewPost from "../NewPost/NewPost";
 
 function PostsList (props) {
     const TOKEN_STRING = localStorage.getItem("token");
+    let [searchQuery, setSearchQuery]=useState("");
+    let filteredPosts = props.allPosts.filter((post) => {
+        let lowercasedName= post.title.toLowerCase();
+        let lowercasedQuery= searchQuery.toLowerCase();
+        if (lowercasedName.includes(lowercasedQuery)) {
+            return post
+        }
+    })
     useEffect (() => {
         async function fetchOurPosts(){
           try {
@@ -22,27 +29,46 @@ function PostsList (props) {
         }
         fetchOurPosts();
       }, [])
-console.log(props.allPosts)
+
     return(
         <div>
+                <form>
+                 <label htmlFor="search-query">Search Posts:</label>
+                    <input 
+                    name="search-query"
+                    type="text"
+                    value={searchQuery}
+                    onChange={(event) => {
+                        console.log(event.target.value)
+                        setSearchQuery(event.target.value)
+                    }}
+                    ></input>
+                </form>
             {
                 props.isLoggedIn ? (
                     <>
                         <Link to='/new-post'>NEW POST</Link>
                         
-                        {props.allPosts.length ? props.allPosts.map((post) => {
-                                return <SinglePost key={post._id} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}/>
-                            }) : (
-                                <h3>Loading</h3>
-                            )}
+                        {
+                        filteredPosts.length ? filteredPosts.map((post, idx) =>{
+                            if(props.username) {
+                            return <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}/>
+                            } else {
+                                return  <>
+                                            <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}/>
+                                            <button></button>
+                                        </>
+                            }
+                        }) : <p>No results match your current search</p>
+                        }
                     </>
                 ) : (
                     <>
-                        {props.allPosts.length ? props.allPosts.map((post) => {
-                                return <SinglePost key={post._id} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}  />
-                            }) : (
-                                <h3>Loading</h3>
-                            )}
+                        {
+                        filteredPosts.length ? filteredPosts.map((post, idx) =>{
+                            return <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}/>
+                        }) : <p>No results match your current search</p>
+                        }
                     </>
                 )
             }

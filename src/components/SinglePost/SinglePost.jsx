@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 function SinglePost ( props ){
     const navigate = useNavigate()
-
+    // console.log(props)
     const messagePage = ()=>{
         navigate(`/posts/${props.id}/messages`)
     } 
@@ -18,3 +18,5 @@ function SinglePost ( props ){
 }
 
 export default SinglePost;
+
+

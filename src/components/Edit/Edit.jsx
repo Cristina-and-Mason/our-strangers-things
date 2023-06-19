@@ -86,7 +86,7 @@ function Edit() {
             ></input><br/>
             <label>New Will Deiver Status:</label>
             <input 
-            name="price" 
+            name="will-deliver" 
             type="text" 
             placeholder="true or flase"
             value={newWillDeliver}

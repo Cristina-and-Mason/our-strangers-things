@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageThread, PostDetails, Profile, Edit } from './components/index';
+import { PostsList, Home, SinglePost, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageThread, PostDetails, Profile, Edit } from './components/index';
 import './App.css'
 
 function App() {
@@ -26,10 +26,9 @@ function App() {
         <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} username={username} />} />
           <Route path="/posts/:id" element={<Edit />} />
           <Route path="/posts/:id/messages" element={<PostMessage />} />
-          <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>} />
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />
           <Route path="/new-post" element={<NewPost newPostTitle={newPostTitle} setNewPostTitle={setNewPostTitle} newPostDesc={newPostDesc} setNewPostDesc={setNewPostDesc} newPostPrice={newPostPrice} setNewPostPrice={setNewPostPrice} />} />

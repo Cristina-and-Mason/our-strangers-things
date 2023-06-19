@@ -1,9 +1,9 @@
 
 
 
-1. Filter inactive posts in profile
-2. Profile page to see Messages
+
 3. CSS!!!
-4. Edit Home.jsx, add more to it?
 5. Message Thread
 6. ternary statement for messages in allPosts
+7. message submit navigates to allPosts
+8. remove ability to message yourself
