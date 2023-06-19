@@ -17,7 +17,8 @@ const Profile = () => {
           },
         });
         const result = await response.json();
-        console.log(result.data.messages);
+        // console.log(result.data.messages);
+        console.log(result.data.posts);
         setMyPosts(result.data.posts)
         setMyMessages(result.data.messages)
       } catch (error) {
@@ -34,8 +35,8 @@ const Profile = () => {
       <h1>My Posts</h1>
       {
         myPosts.map((post) => {
-          return <MyPost key={post._id} title={post.title} id={post._id} description={post.description} author={post.author} price={post.price} />
-                  
+          return <MyPost key={post._id} title={post.title} id={post._id} description={post.description} price={post.price} />
+               
           })
       }
       <h1>My Messages</h1>

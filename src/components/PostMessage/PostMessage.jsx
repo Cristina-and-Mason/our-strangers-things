@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 function PostMessage(props) {
     const [ newMessage, setNewMessage ] = useState('')
     const { id } = useParams();
+    console.log(id)
     const BASE_URL = `https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${id}/messages`
     const TOKEN_STRING = localStorage.getItem("token");
     const postMessages = async (event) => {
