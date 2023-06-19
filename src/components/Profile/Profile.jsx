@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import MyPost from '../MyPost/MyPost';
 
 const Profile = () => {
   const [ myPosts, setMyPosts ] = useState([])
@@ -16,7 +17,7 @@ const Profile = () => {
           },
         });
         const result = await response.json();
-        // console.log(result.data.messages);
+        console.log(result.data.messages);
         setMyPosts(result.data.posts)
         setMyMessages(result.data.messages)
       } catch (error) {
@@ -26,24 +27,15 @@ const Profile = () => {
     profileData()
   }, [])
 
-  const editPage = ()=>{
-      navigate("/posts/:id")
-  }
   return (
-    <div onClick={editPage}>
+    <div>
         
            
       <h1>My Posts</h1>
       {
         myPosts.map((post) => {
-          return  <>
-                    <h2>Title: {post.title}</h2>
-                    <h2>ID# {post._id}</h2>
-                    <h2>Description: {post.description}</h2>
-                    <h2>Author: {post.author.username}</h2>
-                    <h2>Price: {post.price}</h2>
-                    <button type="button">Edit</button>
-                  </>
+          return <MyPost key={post._id} title={post.title} id={post._id} description={post.description} author={post.author} price={post.price} />
+                  
           })
       }
       <h1>My Messages</h1>
