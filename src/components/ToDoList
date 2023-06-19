@@ -4,7 +4,7 @@
 1. Finish Delete.jsx
 2. Edit Home.jsx, add more to it?
 3. CSS!!!
-4. Messages (MessageList and PostMessage)
-5. Profile page to see Messages
-6. edit posts
-7. ternary for SinglePost
+4. Profile page to see Messages and posts
+5. edit posts
+6. ternary for SinglePost
+7. PostDetails

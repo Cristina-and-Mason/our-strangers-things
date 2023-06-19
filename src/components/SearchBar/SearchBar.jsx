@@ -1,5 +1,5 @@
 import {useState} from 'react'
-function SearchBar ({allPosts, setAllPosts}){
+function SearchBar ({allPosts}){
     // console.log(props)
 let [searchQuery, setSearchQuery]=useState("");
 
