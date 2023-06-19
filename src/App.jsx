@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageThread, PostDetails, Profile } from './components/index';
+import { PostsList, Home, SinglePost, SearchBar, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageThread, PostDetails, Profile, Edit } from './components/index';
 import './App.css'
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<PostsList allPosts={allPosts} setAllPosts={setAllPosts} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/posts/:id" element={<PostDetails />} />
+          <Route path="/posts/:id" element={<Edit />} />
           <Route path="/posts/:id/messages" element={<PostMessage />} />
           <Route path="/searchbar" element={<SearchBar allPosts={allPosts}/>} />
           <Route path="/register" element={<Register setIsLoggedIn={setIsLoggedIn} username={username} setUsername={setUsername} password={password} setPassword={setPassword} />} />

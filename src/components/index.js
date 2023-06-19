@@ -9,5 +9,6 @@ export {default as NavBar} from "./NavBar/NavBar";
 export {default as Login} from "./Login/Login";
 export {default as PostMessage} from "./PostMessage/PostMessage";
 export {default as MessageThread} from "./MessageThread/MessageThread";
-export {default as PostDetails} from "./PostDetails/PostDetails"
-export {default as Profile} from "./Profile/Profile"
+export {default as PostDetails} from "./PostDetails/PostDetails";
+export {default as Profile} from "./Profile/Profile";
+export {default as Edit} from "./Edit/Edit"

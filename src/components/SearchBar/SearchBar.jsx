@@ -1,9 +1,8 @@
 import {useState} from 'react'
 function SearchBar ({allPosts}){
-    // console.log(props)
 let [searchQuery, setSearchQuery]=useState("");
 
-    let filteredPosts=allPosts.filter((post) => {
+    let filteredPosts = allPosts.filter((post) => {
         let lowercasedName= post.title.toLowerCase();
         let lowercasedQuery= searchQuery.toLowerCase();
 
