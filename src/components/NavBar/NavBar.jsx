@@ -8,7 +8,7 @@ const NavBar = (props) => {
     <div id='nav-bar'>
       {props.isLoggedIn ? (
         <>
-          <Link to="/">Home </Link>
+          <Link to="/">HOME </Link>
           <Link to="/posts">POSTS</Link>
           <Link to="/searchbar">SEARCH</Link>
           <Link to="/users/me">PROFILE</Link>
@@ -25,9 +25,9 @@ const NavBar = (props) => {
         </>
       ) : (
         <>
-          <Link to="/">Home </Link>
-          <Link to="/register">Register </Link>
-          <Link to="/login">Login </Link>
+          <Link to="/">HOME </Link>
+          <Link to="/register">REGISTER </Link>
+          <Link to="/login">LOGIN </Link>
           <Link to="/posts">POSTS</Link>
           <Link to="/searchbar">SEARCH</Link>
         </>

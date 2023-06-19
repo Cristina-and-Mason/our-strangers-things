@@ -1,4 +1,17 @@
 #nav-bar {
     display:flex;
     justify-content: space-evenly;
+    background-color: #A4031F;
+  }
+
+  .custom-cursor-on-hover{
+    color: white;
+    font-size: 1.5em;
+    font-family:'Courier New', Courier, monospace;
+  }
+
+  a{
+    color: white;
+    font-size: 1.5em;
+    font-family:'Courier New', Courier, monospace;
   }
