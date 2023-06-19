@@ -25,7 +25,7 @@ function Delete (props){
             
             
             const filteredPosts= props.allPosts.filter((indivPost) => {
-                if(indivPost.author.username !=event.target.value){
+                if(indivPost.author.username !=indivPost.author.username){
                     console.log(indivPost)
                     return indivPost
                 }
@@ -39,7 +39,7 @@ function Delete (props){
     }
 
     {
-        filteredProfilePosts.length ? filteredProfilePosts.map((post, idx) => {
+        filteredPosts.length ? filteredPosts.map((post, idx) => {
             return(
                 <div key={idx}>
                      <h2>Name: {props.title}</h2>
