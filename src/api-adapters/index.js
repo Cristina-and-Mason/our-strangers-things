@@ -1,7 +1,7 @@
 const COHORT_NAME = '2304-FTB-ET-WEB-FT'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-export const registerUser=  async (username, password) =>{
+export const registerUser = async (username, password) =>{
     try{
         const response= await fetch (`${BASE_URL}/users/register`,{
             method: "POST", 

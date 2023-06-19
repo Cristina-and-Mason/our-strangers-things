@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function Edit() {
@@ -88,7 +88,7 @@ function Edit() {
             <input 
             name="price" 
             type="text" 
-            placeholder="t rue or flase"
+            placeholder="true or flase"
             value={newWillDeliver}
             onChange={(event) => {
                 setNewWillDeliver(event.target.value)

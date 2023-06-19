@@ -2,11 +2,14 @@ import {useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import MyPost from '../MyPost/MyPost';
 
-const Profile = () => {
+const Profile = (props) => {
   const [ myPosts, setMyPosts ] = useState([])
   const [ myMessages, setMyMessages ] = useState([])
   const TOKEN_STRING = localStorage.getItem("token");
   const navigate = useNavigate()
+  const activePosts = myPosts.filter((post) => {
+    post.active == true
+  })
   useEffect (() => {
     async function profileData() {
       try {
@@ -34,8 +37,8 @@ const Profile = () => {
            
       <h1>My Posts</h1>
       {
-        myPosts.map((post) => {
-          return <MyPost key={post._id} title={post.title} id={post._id} description={post.description} price={post.price} />
+        activePosts.map((post) => {
+          return <MyPost key={post._id} title={post.title} id={post._id} description={post.description} price={post.price} allPosts={props.allPosts} setAllPosts={props.setAllPosts} />
                
           })
       }
