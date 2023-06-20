@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SinglePost from "../SinglePost/SinglePost";
 
@@ -51,14 +51,7 @@ function PostsList (props) {
                         
                         {
                         filteredPosts.length ? filteredPosts.map((post, idx) =>{
-                            if(props.username) {
-                            return <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}/>
-                            } else {
-                                return  <>
-                                            <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver}/>
-                                            <button></button>
-                                        </>
-                            }
+                            return <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver} username={props.username} />
                         }) : <p>No results match your current search</p>
                         }
                     </>

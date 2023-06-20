@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MyPost from '../MyPost/MyPost';
 import MyMessage from '../MyMessage/MyMessage';
 
@@ -24,8 +24,6 @@ const Profile = (props) => {
           },
         });
         const result = await response.json();
-        // console.log(result.data.posts)
-        // console.log(result.data.messages);
         setMyPosts(result.data.posts)
         setMyMessages(result.data.messages)
       } catch (error) {

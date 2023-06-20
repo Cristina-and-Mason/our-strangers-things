@@ -1,6 +1,6 @@
 import './Home.css'
 
-function Home (props){
+function Home (){
     return(
         <div id="homepage-title">
             <h1>Welcome to Strangers Things</h1>

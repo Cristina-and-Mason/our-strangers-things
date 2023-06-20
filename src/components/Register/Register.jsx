@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import {registerUser} from "../../api-adapters"
 import {useNavigate} from "react-router-dom"
 
