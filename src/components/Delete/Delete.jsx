@@ -16,7 +16,6 @@ function Delete () {
                     }
                 })
                 const translatedData= await response.json();
-                console.log(translatedData)
                 navigate("/users/me")
                 return translatedData
                 } catch (error){

@@ -31,7 +31,6 @@ function Edit() {
                 })
               });
               const result = await response.json();
-              console.log(result);
             navigate('/users/me')
               return result
             } catch (err) {

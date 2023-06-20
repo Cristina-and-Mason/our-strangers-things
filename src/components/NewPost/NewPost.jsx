@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { loginUser } from "../../api-adapters";
 import { useNavigate } from "react-router-dom";
 
 function NewPost (props){
@@ -24,7 +22,6 @@ function NewPost (props){
                 })   
             })
             const translatedData = await response.json();
-            // console.log(translatedData)
             navigate('/posts')
             return translatedData
             
@@ -62,7 +59,6 @@ function NewPost (props){
             value={props.newPostPrice}
             onChange={(event) => {
                 props.setNewPostPrice(event.target.value)
-                // console.log(event.target.value)
             }}
             ></input><br/>
             <button type="submit">Create New Post</button>

@@ -1,11 +1,10 @@
-import { React, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import MessageThread from "../MessageThread/MessageThread";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function PostMessage(props) {
+function PostMessage() {
     const [ newMessage, setNewMessage ] = useState('')
     const { id } = useParams();
-    // console.log(id)
+    const navigate = useNavigate()
     const BASE_URL = `https://strangers-things.herokuapp.com/api/2304-FTB-ET-WEB-FT/posts/${id}/messages`
     const TOKEN_STRING = localStorage.getItem("token");
     const postMessages = async (event) => {
@@ -24,7 +23,8 @@ function PostMessage(props) {
             })
           });
           const result = await response.json();
-          console.log(result);
+          console.log(result); 
+          navigate('/posts')
           return result
         } catch (err) {
           console.error(err);
@@ -32,7 +32,6 @@ function PostMessage(props) {
       }
     return (
       <>
-        <MessageThread />
         <form onSubmit={postMessages}>
             <label>Send a Message:</label>
             <textarea 

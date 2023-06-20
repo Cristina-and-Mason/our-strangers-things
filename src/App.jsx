@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
-import { PostsList, Home, SinglePost, Delete, NewPost, Register, NavBar, Login, PostMessage, MessageThread, PostDetails, Profile, Edit } from './components/index';
+import { Routes, Route } from 'react-router-dom'
+import { PostsList, Home, Delete, NewPost, Register, NavBar, Login, PostMessage, Profile, Edit } from './components/index';
 import './App.css'
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
       setIsLoggedIn(true);
     }
   }, []);
-  
   return (
     <>
      <div>

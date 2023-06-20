@@ -1,9 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css"
 
 const NavBar = (props) => {
-  // console.log(props.isLoggedIn)
   return (
     <div id='nav-bar'>
       {props.isLoggedIn ? (
