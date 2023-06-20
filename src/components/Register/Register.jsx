@@ -1,5 +1,6 @@
 import {registerUser} from "../../api-adapters"
 import {useNavigate} from "react-router-dom"
+import './Register.css'
 
 const Register= (props) => {
     const setIsLoggedIn= props.setIsLoggedIn
@@ -27,9 +28,10 @@ const Register= (props) => {
     return (
         <div id="register-container">
             <div id="register-title">
-            <h2>Register</h2>
+            <h2>Register for exclusive details and offers!</h2>
             </div>
             <form onSubmit={handleSubmit}>
+        <div id="form-container">
         <label>
           Username:
           <input
@@ -51,6 +53,7 @@ const Register= (props) => {
           />
         </label>
         <button type='submit'>Submit</button>
+        </div>
       </form>
     </div>
             

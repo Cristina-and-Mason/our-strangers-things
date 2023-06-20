@@ -1,11 +1,30 @@
 #register-container{
-    display: flex;
+  background-color: #586F7C;
+  width: 40em;
+  height: 15em;
 }
 
 #register-title{
-  border: 2px white;
+  color: white;
 }
 
-.custom-cursor-default-hover{
-    border: 2px white;
+#form-container{
+  font-size: 1.7em;
+  color: black;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #586F7C;
+}
+
+/* label{
+  background-color:#586F7C;
+  
+} */
+
+button{
+  color: #A4031F;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1em;
+  width: 7em;
+  height: 4em;
+  border: 2px solid black;
 }

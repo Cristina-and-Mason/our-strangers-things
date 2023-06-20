@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SinglePost from "../SinglePost/SinglePost";
+import "./PostsList.css"
 
 function PostsList (props) {
     const TOKEN_STRING = localStorage.getItem("token");
@@ -35,7 +36,9 @@ function PostsList (props) {
       }, [])
 
     return(
+        
         <div onSubmit={messagePage}>
+           <div id="posts-list">
                 <form>
                  <label htmlFor="search-query">Search Posts:</label>
                     <input 
@@ -48,7 +51,9 @@ function PostsList (props) {
                     }}
                     ></input>
                 </form>
+            
             {
+                
                 props.isLoggedIn ? (
                     <>
                         <Link to='/new-post'>NEW POST</Link>
@@ -73,6 +78,7 @@ function PostsList (props) {
                     </>
                 )
             }
+         </div>
         </div>
     )
 }
