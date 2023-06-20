@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css"
 
 const NavBar = (props) => {
+  const navigate = useNavigate()
   return (
     <div id='nav-bar'>
       {props.isLoggedIn ? (
@@ -15,6 +16,7 @@ const NavBar = (props) => {
               localStorage.removeItem("token");
               localStorage.removeItem("username");
               localStorage.removeItem("password");
+              navigate('/')
             }}
           >
             Logout

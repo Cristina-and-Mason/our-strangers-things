@@ -18,7 +18,6 @@ const Login = (props) => {
   
       try {
         const result = await loginUser(username, password);
-        console.log(result);
   
         localStorage.setItem("token", result.token);
         localStorage.setItem("username", username)
