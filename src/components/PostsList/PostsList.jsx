@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SinglePost from "../SinglePost/SinglePost";
 
 function PostsList (props) {
     const TOKEN_STRING = localStorage.getItem("token");
     let [searchQuery, setSearchQuery]=useState("");
+    const navigate = useNavigate()
     let filteredPosts = props.allPosts.filter((post) => {
         let lowercasedName= post.title.toLowerCase();
         let lowercasedQuery= searchQuery.toLowerCase();
@@ -12,6 +13,9 @@ function PostsList (props) {
             return post
         }
     })
+    const messagePage = ()=>{
+        navigate(`/posts/${props.id}/messages`)
+    } 
     useEffect (() => {
         async function fetchOurPosts(){
           try {
@@ -31,7 +35,7 @@ function PostsList (props) {
       }, [])
 
     return(
-        <div>
+        <div onSubmit={messagePage}>
                 <form>
                  <label htmlFor="search-query">Search Posts:</label>
                     <input 
@@ -51,8 +55,12 @@ function PostsList (props) {
                         
                         {
                         filteredPosts.length ? filteredPosts.map((post, idx) =>{
-                            return <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver} username={props.username} />
+                            return <>
+                                        <SinglePost key={idx} id={post._id} title={post.title} description={post.description} price={post.price} author={post.author} messages={post.messages} willDeliver={post.willDeliver} username={props.username} />
+                                        <button type="submit">Send a message</button>
+                                    </>
                         }) : <p>No results match your current search</p>
+                        
                         }
                     </>
                 ) : (
